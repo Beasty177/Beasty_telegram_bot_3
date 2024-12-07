@@ -1,17 +1,26 @@
 import telebot
 from telebot import formatting
+from random import choice
 from telebot import types
-
 
 token = '8147781080:AAFvPegxmvmzd5Um1ouuuEpBtWfITR2bGHU'
 bot = telebot.TeleBot(token)
 
+random_hello=['Ну здарова, ёпта','Хули надо, кожаный','Бля, отъебись, я занят нахуй','Лан, привет, чё надо, давай только быстро','Добрейшего денёчка']
+
 link_main="https://t.me/vtornikshow"
 
-text_top_post = "[VTRNK Radio Show] (https://t.me/vtornikshow)"
+text_top_post = "[VTRNK Radio Show](https://t.me/vtornikshow)"
 
 vtrnk_data="10 декабря 2024"
 vtrnk_dj_nik = "Beasty"
+mes=[]
+bot_name = "уебок"
+
+@bot.message_handler(commands=['hello'])
+def rand_hello(message):
+    task = choice(random_hello)
+    bot.send_message(message.chat.id, task)
 
 
 @bot.message_handler(commands=['start', 'help'])
@@ -19,33 +28,28 @@ def send_welcome(message):
 	bot.reply_to(message, "Howdy, TEST how are you doing?" )
 
 
-@bot.message_handler(commands=['button'])
-def button_message(message):
-	markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
-	item1=types.KeyboardButton("Кнопка")
-	markup.add(item1)
-	bot.send_message(message.chat.id, 'Выберите что вам надо', reply_markup=markup)
-
-@bot.message_handler(content_types='text')
-def message_reply(message):
-    if message.text=="Кнопка":
-        bot.send_message(message.chat.id,"https://t.me/vtornikshow")
-
-
-
 @bot.message_handler(func=lambda message: True)
-def echo_all(message):
+def hello_message (message):
+	mes= message.text.split()
+	if bot_name in mes:
+		task = choice(random_hello)
+		bot.reply_to(message, task)
+	print (mes)
 
-	bot.reply_to(message, message.text)
+	mes=None
 
-	bot.send_message(message.chat.id, f'{text_top_post} \n Прив прив прив \n {message.text} Hello, *world*')
 
-	bot.send_message(message.chat.id, formatting.format_text(formatting.mbold(text_top_post),
+#@bot.message_handler(func=lambda message: True)
+#def echo_all(message):
+#
+#	#bot.reply_to(message, message.text)
+#	bot.send_message(message.chat.id, f'__Нижнее подчёркивание__ '
+#									  f'\n ~Зачёркнутый~ '
+#									  f'\n *text* '
+#									  f'\n ||spoiler|| '
+#									  f'\n *[VTRNK Radio Show](https://t.me/vtornikshow)*', parse_mode='MarkdownV2')
+#	bot.send_message(message.chat.id, f'{text_top_post} \n Прив прив прив \n {message.text} Hello, *world*')
 
-	(f'Приглашаем на эфир {vtrnk_data} c 20:00 до 02:00 \n'),
-	formatting.mbold(vtrnk_dj_nik.upper()),(''), (message.text)),
-
-	parse_mode='MarkdownV2')
 
 	#print (message)
 
