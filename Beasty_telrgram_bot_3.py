@@ -3,7 +3,7 @@ import telebot
 from random import choice
 from telebot import types
 
-token = '8147781080:AAFvPegxmvmzd5Um1ouuuEpBtWfITR2bGHU'
+token='8147781080:AAFvPegxmvmzd5Um1ouuuEpBtWfITR2bGHU'
 bot = telebot.TeleBot(token)
 
 bot_name = ["уебок","пиздюк", "ушлепок", "уебок,","пиздюк,", "ушлепок,""уебок?","пиздюк?", "ушлепок?" ]
