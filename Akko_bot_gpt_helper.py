@@ -1,7 +1,8 @@
+import telebot
 from telebot import types
 import g4f
 from g4f.client import Client
-import telebot
+
 
 token='7976548226:AAFXV7cqzXWaWPfJjF9_Xi_Aog0oyXMIB2U'
 bot = telebot.TeleBot(token)
@@ -298,11 +299,12 @@ def response_gpt_message (call):
                 # Add any other necessary parameters
             )
             resp_gpt = (response.choices[0].message.content)
-            bot.send_message(call.chat.id,f'{resp_gpt} \n\n Для главного меню нажмите /menu',)
+            bot.send_message(call.chat.id,f'{resp_gpt} \n\n Для главного меню нажмите /menu')
+            print(resp_gpt)
+            print(response)
         except Exception:
-            bot.send_message(call.chat.id, f'Упс, что то пошло не по плану, попробуйте позже \n Для главного меню нажмите /menu \n Что бы узнать о преимуществах телеграмм бота \- нажми /info', )
-        print (resp_gpt)
-        print (response)
+            bot.send_message(call.chat.id, f'Упс, что то пошло не по плану, попробуйте позже \n Для главного меню нажмите /menu \n Что бы узнать о преимуществах телеграмм бота \- нажми /info')
+
     else:
         bot_msg = bot.send_message(call.chat.id, f'Нажми /start что бы начать \nНажми /menu для перехода в основное меню \n Что бы узнать о преимуществах телеграм бота \- нажми /info'
                                    , parse_mode='MarkdownV2')
