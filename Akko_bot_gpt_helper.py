@@ -7,6 +7,10 @@ from g4f.client import Client
 token='7976548226:AAFXV7cqzXWaWPfJjF9_Xi_Aog0oyXMIB2U'
 bot = telebot.TeleBot(token)
 
+
+
+
+
 user_id = None
 chat_id = None
 mess_id = None

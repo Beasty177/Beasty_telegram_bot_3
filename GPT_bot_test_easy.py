@@ -8,13 +8,13 @@ token='8147781080:AAFvPegxmvmzd5Um1ouuuEpBtWfITR2bGHU'
 bot=telebot.TeleBot(token,)
 
 #_providers = [
-#    # g4f.Provider.GizAI, #это было нормальное
-#    # g4f.Provider.TeachAnything #тоже норм
-#    # g4f.Provider.Free2GPT #норм
-#    # 4f.Provider.Flux,#картинка
-#    # g4f.Provider.DarkAI, #норм
-#    # g4f.Provider.DDG #норм
-#    g4f.Provider.Blackbox  # Норм
+    # g4f.Provider.GizAI, #это было нормальное
+    # g4f.Provider.TeachAnything #тоже норм
+    # g4f.Provider.Free2GPT #норм
+    # 4f.Provider.Flux,#картинка
+    # g4f.Provider.DarkAI, #норм
+    # g4f.Provider.DDG #норм
+    #g4f.Provider.Blackbox  # Норм
 #]
 
 @bot.message_handler(func=lambda message: True)
