@@ -1,4 +1,8 @@
 from PIL import Image
+from tkinter import filedialog as fd
+from tkinter import messagebox as mb
+
+
 try:
 
      filename = "photo_2025-01-01_20-25-27.jpg"
@@ -38,18 +42,6 @@ try:
      img.show()
 
 
-
-
-
-
      img.save("new_img.jpg")
 except Exception as e:
      print(e)
-
-
-#   type(img)
-#   <class 'PIL.JpegImagePlugin.JpegImageFile'>
-
-#   isinstance(img, Image.Image)
-
-#   True
